@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  ingridients: MyText
+  description: MyText
+  image_url: biriani.png
+
+two:
+  name: MyString
+  ingridients: MyText
+  description: MyText
+  image_url: burger.png

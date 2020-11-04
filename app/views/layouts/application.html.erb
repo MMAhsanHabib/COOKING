@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>COOKING</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <section class="content">
+      <nav class="side_nav">
+        <% if session[:user_id] %>
+          <nav class="logged_in_nav">
+            <ul>
+              <li><%= link_to 'Menues', menues_path %></li>
+              <li><%= link_to 'Users', users_path %></li>
+              <li><%= link_to 'Admin', admin_path %></li>
+              <li><%= button_to 'Logout', logout_path, method: :delete %></li>
+            </ul>
+          </nav>
+        <% end %>
+        <% unless session[:user_id] %>
+          <li><%= link_to 'Menues', menues_path %></li>
+        <% end %>
+      </nav>
+
+      <main class='<%= controller.controller_name %>'>
+        <%= yield %>
+      </main>
+    </section>
+  </body>
+</html>

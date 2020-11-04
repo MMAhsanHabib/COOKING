@@ -1,0 +1,38 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @menue.name %>
+</p>
+
+<p>
+  <strong>Ingridients:</strong>
+  <%= @menue.ingridients %>
+</p>
+
+<p>
+  <strong>Preparing Process:</strong>
+  <%= @menue.description %>
+</p>
+
+<p>
+  <strong>Image</strong>
+  <table>
+  <tbody>
+  <tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
+  <td class="image">
+  <%= image_tag(@menue.image_url, class: 'list_image') %>
+  </td>
+  </tr>
+  </tbody>
+  </table>
+</p>
+
+<h2>Comments</h2>
+<%= render @menue.comments %>
+
+<h2>Add a comment:</h2>
+<%= render 'comments/form' %>
+
+<%= link_to 'Edit', edit_menue_path(@menue) %> |
+<%= link_to 'Back', menues_path %>

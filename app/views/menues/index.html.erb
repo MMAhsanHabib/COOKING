@@ -1,0 +1,48 @@
+<% if notice %>
+<aside id="notice"><%= notice %></aside>
+<% end %>
+<h1>Menues</h1>
+
+<table>
+    <tfoot>
+        <tr>
+            <td colspan="3">
+                <%= link_to 'New Menue', new_menue_path %>
+            </td>
+        </tr>
+    </tfoot>
+    <tbody>
+        <% @menues.each do |menue| %>
+            <tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
+                <td class="image">
+                    <%= image_tag(menue.image_url, class: 'list_image') %>
+                </td>
+                <td class="description">
+                    <h1><%= menue.name %></h1>
+                        <p>
+                            <strong>Ingridients:</strong>
+                            <%= menue.ingridients %>
+                        </p>
+                            <strong>Preparing Process:</strong> 
+                            <%= truncate(strip_tags(menue.description), length: 80) %>
+                        </p>
+                        <p>
+                            <ul>
+                                <li><%= link_to 'Show', menue %></li>
+                            </ul>
+                        </p>
+                </td>
+                <td class="actions">
+                    <ul>
+                        
+                        <li><%= link_to 'Edit', edit_menue_path(menue) %></li>
+                        <li><%= link_to 'Destroy',
+                        menue,
+                        method: :delete,
+                        data: { confirm: 'Are you sure?' } %> </li>
+                    </ul>
+                </td>
+            </tr>
+        <% end %>
+    </tbody>
+</table
