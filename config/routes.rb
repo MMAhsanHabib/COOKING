@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  get 'home/index'
   get 'admin' => 'admin#index'
   controller :sessions do
     get 'login' => :new
@@ -13,5 +14,6 @@ Rails.application.routes.draw do
   resources :menues do
     resources :comments
   end
+  root 'menues#index'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
