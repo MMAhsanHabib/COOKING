@@ -2,15 +2,13 @@
 <aside id="notice"><%= notice %></aside>
 <% end %>
 
-<h1>Menues</h1>
+<h1>Menus</h1>
 
 <table>
     <tfoot>
         <tr>
             <td colspan="3">
-                <% if session[:user_id] %>
                     <%= link_to 'New Menue', new_menue_path %>
-                <% end %>
             </td>
         </tr>
     </tfoot>
@@ -30,30 +28,25 @@
                             <%= truncate(strip_tags(menue.description), length: 80) %>
                         </p>
                         <p>
-                        <% if session[:user_id] %>
+
                             <ul>
                                 <li><%= link_to 'Show', menue %></li>
                             </ul>
-                        <% end %>
-                        <% unless session[:user_id] %>
-                            <ul>
-                                <li><%= link_to 'Details', menue %></li>
-                            </ul>
-                        <% end %>
+
                         </p>
                 </td>
                 <td class="actions">
                     <ul>
-                        <% if session[:user_id] %>
+
                             <li><%= link_to 'Edit', edit_menue_path(menue) %></li>
                             <li><%= link_to 'Destroy',
                             menue,
                             method: :delete,
                             data: { confirm: 'Are you sure?' } %> </li>
-                        <% end %>
+
                     </ul>
                 </td>
             </tr>
         <% end %>
     </tbody>
-</table
+</table>

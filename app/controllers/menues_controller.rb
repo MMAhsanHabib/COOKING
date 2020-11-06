@@ -1,5 +1,5 @@
 class MenuesController < ApplicationController
-  skip_before_action :authorize, only: [:index, :show]
+  skip_before_action :authorize, only: :show
   before_action :set_menue, only: [:show, :edit, :update, :destroy]
   
 
